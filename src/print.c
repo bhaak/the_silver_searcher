@@ -31,7 +31,8 @@ void print_path(const char *path, const char sep) {
         fprintf(out_fd, "%s%c", path, sep);
     } else {
         if (opts.color) {
-            fprintf(out_fd, "%s%s%s%c", opts.color_path, path, color_reset, sep);
+            fprintf(out_fd, "%s%s%s%c%s", opts.color_path, path, opts.color_separator,
+                            sep, color_reset);
         } else {
             fprintf(out_fd, "%s%c", path, sep);
         }
@@ -282,7 +283,8 @@ void print_line_number(size_t line, const char sep) {
         line = opts.stream_line_num;
     }
     if (opts.color) {
-        fprintf(out_fd, "%s%lu%s%c", opts.color_line_number, (unsigned long)line, color_reset, sep);
+        fprintf(out_fd, "%s%lu%s%c%s", opts.color_line_number, (unsigned long)line,
+                        opts.color_separator, sep, color_reset);
     } else {
         fprintf(out_fd, "%lu%c", (unsigned long)line, sep);
     }

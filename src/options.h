@@ -41,6 +41,7 @@ typedef struct {
     char *color_line_number;
     char *color_match;
     char *color_path;
+    char *color_separator;
     int color_win_ansi;
     int column;
     int context;

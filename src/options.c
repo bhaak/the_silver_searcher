@@ -16,9 +16,10 @@
 #include "print.h"
 #include "util.h"
 
-const char *color_line_number = "\033[1;33m"; /* bold yellow */
-const char *color_match = "\033[30;43m";      /* black with yellow background */
-const char *color_path = "\033[1;32m";        /* bold green */
+const char *color_line_number = "\033[0;32m";  /* green with black background */
+const char *color_match = "\033[00;48;5;238m"; /* grey background */
+const char *color_path = "\033[0;35m";         /* magenta */
+const char *color_separator = "\033[0;36m";    /* cyan */
 
 /* TODO: try to obey out_fd? */
 void usage(void) {
@@ -148,12 +149,13 @@ void init_options(void) {
     opts.width = 0;
     opts.path_sep = '\n';
     opts.print_break = TRUE;
-    opts.print_path = PATH_PRINT_DEFAULT;
+    opts.print_path = PATH_PRINT_DEFAULT_EACH_LINE;
     opts.print_line_numbers = TRUE;
     opts.recurse_dirs = TRUE;
     opts.color_path = ag_strdup(color_path);
     opts.color_match = ag_strdup(color_match);
     opts.color_line_number = ag_strdup(color_line_number);
+    opts.color_separator = ag_strdup(color_separator);
     opts.use_thread_affinity = TRUE;
 }
 
@@ -161,6 +163,7 @@ void cleanup_options(void) {
     free(opts.color_path);
     free(opts.color_match);
     free(opts.color_line_number);
+    free(opts.color_separator);
 
     if (opts.query) {
         free(opts.query);
