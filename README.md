@@ -1,3 +1,9 @@
+This is my branch of the silver searcher with some simple color customizations
+that mimic GNU grep's color options.
+
+This is an example output of this modified version of the silver searcher:
+![alt tag](example.png)
+
 # The Silver Searcher
 
 A code searching tool similar to `ack`, with a focus on speed.
