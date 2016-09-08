@@ -1,3 +1,7 @@
+This is test
+
+![alt tag](example.png)
+
 # The Silver Searcher
 
 A code searching tool similar to `ack`, with a focus on speed.
